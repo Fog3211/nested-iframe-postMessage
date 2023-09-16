@@ -4,12 +4,12 @@
   "redirects": [
     {
       "source": "/iframe1",
-      "destination": "/",
+      "destination": "https://nested-iframe-post-message-old-domain.fog3211.vercel.app/iframe1.html",
       "permanent": true
     },
     {
       "source": "/iframe2",
-      "destination": "/",
+      "destination": "https://nested-iframe-post-message-new-domain.fog3211.vercel.app/iframe2.html",
       "permanent": true
     }
   ],

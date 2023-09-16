@@ -9,50 +9,22 @@
     <title>Document</title>
   </head>
   <body style="background: pink">
-    <h1>bbbbbbb</h1>
+    <button id="btn1">send message to parent with new domain origin</button>
 
-    <!-- <button id="btna">btn -a</button> -->
+    <button id="btn2">send message to parent with old domain origin</button>
 
-    <button id="btn">btn -b</button>
-
-    <iframe
-      src="https://iframe2-snowy.vercel.app/?id=1"
-      frameborder="0"
-      width="400"
-      height="400"
-    ></iframe>
     <script>
-      // document.querySelector('#btna').addEventListener('click', () => {
-      //   // window.origin='http://localhost:8004'
-      //   console.log(window.origin);
-      //   window.parent.postMessage('ccc', '*');
-      // });
+      document.querySelector('#btn1').addEventListener('click', () => {
+        window.parent.postMessage('aaaa', document.referrer);
+      });
 
-      document.querySelector('#btn').addEventListener('click', () => {
+      document.querySelector('#btn2').addEventListener('click', () => {
         const childIframe = document.createElement('iframe');
-        childIframe.src = 'https://iframe2-snowy.vercel.app/';
-        // childIframe2.style.display = 'none';
+        childIframe.src =
+          'https://nested-iframe-post-message.fog3211.vercel.app/iframe2';
+        childIframe2.style.display = 'none';
         console.log('添加子iframe到页面中', window.location.href);
         document.body.appendChild(childIframe);
-
-        // childIframe.contentWindow?.postMessage(
-        //   {
-        //     a: 1,
-        //   },
-        //   '*'
-        // );
-        // childIframe.contentWindow?.parent.postMessage(
-        //   {
-        //     a: 2,
-        //   },
-        //   '*'
-        // );
-        childIframe.contentWindow?.top?.postMessage(
-          {
-            a: 3,
-          },
-          '*'
-        );
       });
     </script>
   </body>

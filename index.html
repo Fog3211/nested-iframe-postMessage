@@ -10,14 +10,13 @@
   </head>
   <body>
     <iframe
-      src="https://iframe1.vercel.app/"
+      src="https://nested-iframe-post-message.fog3211.vercel.app/iframe1"
       width="600"
       height="600"
       frameborder="0"
     ></iframe>
 
     <script>
-      console.log('ssss')
       window.addEventListener('message', e => {
         console.log('收到信息', e.data, e.origin);
       });
