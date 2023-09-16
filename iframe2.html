@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body style="background-color: aliceblue">
+    <h1>ccccccc</h1>
+
+    <script>
+      // window.parent.postMessage('bbb', '*');
+
+      if (window.location.href.includes('id')) {
+        // window.parent.postMessage('mmmm', '*');
+        window.parent.parent.postMessage('id：000', '*');
+        window.parent.parent.parent.postMessage('id: xvb', '*');
+        window.top.postMessage('id:12', '*');
+      } else {
+        window.parent.parent.postMessage('没id：jjj', '*');
+        window.top.postMessage('没id：12', '*');
+      }
+    </script>
+  </body>
+</html>

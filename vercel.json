@@ -1,0 +1,17 @@
+{
+  "installCommand": "",
+  "buildCommand": "",
+  "redirects": [
+    {
+      "source": "/iframe1",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/iframe2",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "outputDirectory": "."
+}

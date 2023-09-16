@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body style="background: pink">
+    <h1>bbbbbbb</h1>
+
+    <!-- <button id="btna">btn -a</button> -->
+
+    <button id="btn">btn -b</button>
+
+    <iframe
+      src="https://iframe2-snowy.vercel.app/?id=1"
+      frameborder="0"
+      width="400"
+      height="400"
+    ></iframe>
+    <script>
+      // document.querySelector('#btna').addEventListener('click', () => {
+      //   // window.origin='http://localhost:8004'
+      //   console.log(window.origin);
+      //   window.parent.postMessage('ccc', '*');
+      // });
+
+      document.querySelector('#btn').addEventListener('click', () => {
+        const childIframe = document.createElement('iframe');
+        childIframe.src = 'https://iframe2-snowy.vercel.app/';
+        // childIframe2.style.display = 'none';
+        console.log('添加子iframe到页面中', window.location.href);
+        document.body.appendChild(childIframe);
+
+        // childIframe.contentWindow?.postMessage(
+        //   {
+        //     a: 1,
+        //   },
+        //   '*'
+        // );
+        // childIframe.contentWindow?.parent.postMessage(
+        //   {
+        //     a: 2,
+        //   },
+        //   '*'
+        // );
+        childIframe.contentWindow?.top?.postMessage(
+          {
+            a: 3,
+          },
+          '*'
+        );
+      });
+    </script>
+  </body>
+</html>
