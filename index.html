@@ -9,9 +9,9 @@
     <title>nested-iframe-postMessage</title>
   </head>
   <body>
-    <h2>iframe1:</h2>
+    <h2>This is a child page in iframe</h2>
     <iframe
-      src="https://nested-iframe-post-message.vercel.app/iframe1.html"
+      src="https://nested-iframe-post-message-old-domain.fog3211.vercel.app/iframe1.html"
       width="600"
       height="600"
       frameborder="0"
@@ -23,6 +23,13 @@
           `receive message from 👉 ${e.origin}, the data is `,
           e.data
         );
+
+        if (
+          e.origin ===
+          'https://nested-iframe-post-message-old-domain.fog3211.vercel.app'
+        ) {
+          console.log('Success! receive the message from old domain');
+        }
       });
     </script>
   </body>

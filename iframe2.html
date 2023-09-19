@@ -6,23 +6,26 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Landing page</title>
   </head>
-  <body style="background-color: aliceblue">
-    <h1>ccccccc</h1>
-
+  <body>
+    <p>This is a landing page, only be used for forward postMessage</p>
     <script>
-      // window.parent.postMessage('bbb', '*');
+      const newDomainOrigin =
+        'https://nested-iframe-post-message-new-domain.fog3211.vercel.app';
 
-      if (window.location.href.includes('id')) {
-        // window.parent.postMessage('mmmm', '*');
-        window.parent.parent.postMessage('id：000', '*');
-        window.parent.parent.parent.postMessage('id: xvb', '*');
-        window.top.postMessage('id:12', '*');
-      } else {
-        window.parent.parent.postMessage('没id：jjj', '*');
-        window.top.postMessage('没id：12', '*');
-      }
+      window.addEventListener('message', e => {
+        console.log(`receive message from 👉 ${e.origin}, the data is`, e.data);
+        if (e.origin === newDomainOrigin) {
+          const { _msgTarget, ...restData } = e.data;
+          const target = window.parent.parent.postMessage(restData, _msgTarget);
+
+          console.log(
+            `landing page send postMessage to 👉 ${_msgTarget}, the data is`,
+            restData
+          );
+        }
+      });
     </script>
   </body>
 </html>

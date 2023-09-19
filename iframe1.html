@@ -6,25 +6,30 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>new domain page</title>
   </head>
   <body style="background: pink">
-    <button id="btn1">send message to parent with new domain origin</button>
-
-    <button id="btn2">send message to parent with old domain origin</button>
+    <p>Click the button below , send postMessage with old domain origin</p>
+    <button id="btn1">send message</button>
 
     <script>
-      document.querySelector('#btn1').addEventListener('click', () => {
-        window.parent.postMessage('aaaa', document.referrer);
-      });
+      const oldDomainLandingPage =
+        'https://nested-iframe-post-message-old-domain.fog3211.vercel.app/iframe2.html';
 
-      document.querySelector('#btn2').addEventListener('click', () => {
-        const childIframe = document.createElement('iframe');
-        childIframe.src =
-          'https://nested-iframe-post-message.fog3211.vercel.app/iframe2';
-        childIframe2.style.display = 'none';
-        console.log('添加子iframe到页面中', window.location.href);
-        document.body.appendChild(childIframe);
+      const childIframe = document.createElement('iframe');
+      childIframe.style.display = 'none';
+      childIframe.setAttribute('data-msg-target', document.referrer);
+      console.log('insert empty iframe into document', window.location.href);
+      document.body.appendChild(childIframe);
+
+      document.querySelector('#btn1').addEventListener('click', () => {
+        // new domain => old domain
+        childIframe.contentWindow.postMessage(
+          {
+            _msgTarget: document.referrer,
+          },
+          oldDomainLandingPage
+        );
       });
     </script>
   </body>
