@@ -1,22 +1,5 @@
 {
   "installCommand": "",
   "buildCommand": "",
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "https://nested-iframe-post-message.vercel.app/iframe1.html",
-      "destination": "https://nested-iframe-post-message-old-domain.fog3211.vercel.app/iframe1.html",
-      "permanent": true
-    },
-    {
-      "source": "/iframe2",
-      "destination": "https://nested-iframe-post-message-new-domain.fog3211.vercel.app/iframe2.html",
-      "permanent": true
-    }
-  ],
   "outputDirectory": "."
 }
