@@ -6,11 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>nested-iframe-postMessage</title>
   </head>
   <body>
+    <h2>iframe1:</h2>
     <iframe
-      src="https://nested-iframe-post-message.fog3211.vercel.app/iframe1"
+      src="https://nested-iframe-post-message.vercel.app/iframe1.html"
       width="600"
       height="600"
       frameborder="0"
@@ -18,7 +19,10 @@
 
     <script>
       window.addEventListener('message', e => {
-        console.log('收到信息', e.data, e.origin);
+        console.log(
+          `receive message from 👉 ${e.origin}, the data is `,
+          e.data
+        );
       });
     </script>
   </body>
