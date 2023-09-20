@@ -9,7 +9,7 @@
     <title>new domain page</title>
   </head>
   <body style="background: pink">
-    <p>Click the button below , send postMessage with old domain origin</p>
+    <p>Click the button below, send postMessage with old domain origin</p>
     <button id="btn1">send message</button>
 
     <script>
@@ -18,7 +18,7 @@
 
       const childIframe = document.createElement('iframe');
       childIframe.style.display = 'none';
-      childIframe.setAttribute('data-msg-target', document.referrer);
+      childIframe.setAttribute('src', oldDomainLandingPage);
       console.log('insert empty iframe into document', window.location.href);
       document.body.appendChild(childIframe);
 
